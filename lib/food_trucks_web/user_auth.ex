@@ -1,4 +1,5 @@
 defmodule FoodTrucksWeb.UserAuth do
+  @moduledoc false
   use FoodTrucksWeb, :verified_routes
 
   import Plug.Conn

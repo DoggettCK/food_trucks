@@ -1,4 +1,5 @@
 defmodule FoodTrucks.Accounts.UserToken do
+  @moduledoc false
   use Ecto.Schema
   import Ecto.Query
   alias FoodTrucks.Accounts.UserToken

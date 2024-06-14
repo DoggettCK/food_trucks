@@ -61,7 +61,8 @@ defmodule FoodTrucks.MixProject do
       {:bandit, "~> 1.2"},
       {:mix_test_watch, "~> 1.1", only: :dev, runtime: false},
       {:date_time_parser, "~> 1.2"},
-      {:csv, "~> 3.2"}
+      {:csv, "~> 3.2"},
+      {:credo, "~> 1.6", override: true, only: [:dev, :test], runtime: false}
     ]
   end
 

@@ -1,4 +1,5 @@
 defmodule FoodTrucks.Accounts.UserNotifier do
+  @moduledoc false
   import Swoosh.Email
 
   alias FoodTrucks.Mailer

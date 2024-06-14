@@ -6,7 +6,7 @@ defmodule FoodTrucks.Accounts do
   import Ecto.Query, warn: false
   alias FoodTrucks.Repo
 
-  alias FoodTrucks.Accounts.{User, UserToken, UserNotifier}
+  alias FoodTrucks.Accounts.{User, UserNotifier, UserToken}
 
   ## Database getters
 

@@ -1,7 +1,7 @@
 defmodule FoodTrucks.Repo.Migrations.CreateFoodTrucks do
   use Ecto.Migration
 
-  def change do
+  def up do
     create table(:food_trucks) do
       add :address, :string, null: false
       add :applicant, :string, null: false
@@ -22,5 +22,17 @@ defmodule FoodTrucks.Repo.Migrations.CreateFoodTrucks do
 
       timestamps(type: :utc_datetime)
     end
+
+    execute "CREATE EXTENSION IF NOT EXISTS pg_trgm;"
+
+    execute """
+      CREATE INDEX food_trucks_food_items_gin_trgm_idx
+        ON food_trucks
+        USING gin (food_items gin_trgm_ops);
+    """
+  end
+
+  def down do
+    drop table(:food_trucks)
   end
 end

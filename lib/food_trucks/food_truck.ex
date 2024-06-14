@@ -1,4 +1,8 @@
 defmodule FoodTrucks.FoodTruck do
+  @moduledoc """
+  Ecto schema for food trucks.
+  """
+
   use Ecto.Schema
   import Ecto.Changeset
 
