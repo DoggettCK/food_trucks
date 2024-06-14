@@ -23,11 +23,6 @@ defmodule FoodTrucksWeb.Router do
     get "/", PageController, :home
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", FoodTrucksWeb do
-  #   pipe_through :api
-  # end
-
   # Enable LiveDashboard and Swoosh mailbox preview in development
   if Application.compile_env(:food_trucks, :dev_routes) do
     # If you want to use the LiveDashboard in production, you should put
@@ -80,6 +75,14 @@ defmodule FoodTrucksWeb.Router do
       on_mount: [{FoodTrucksWeb.UserAuth, :mount_current_user}] do
       live "/users/confirm/:token", UserConfirmationLive, :edit
       live "/users/confirm", UserConfirmationInstructionsLive, :new
+    end
+  end
+
+  scope "/api", FoodTrucksWeb do
+    scope "/v1" do
+      pipe_through :api
+
+      get("/food_trucks/by_item", FoodTrucksController, :search)
     end
   end
 end
