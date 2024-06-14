@@ -8,6 +8,8 @@ defmodule FoodTrucks.API do
   import Ecto.Query
 
   @doc """
+  Given a list of strings to search for, builds up a query to find all food
+  trucks whose menu contains every search term.
   """
   @spec by_menu_item(list(binary())) :: Ecto.Query.t()
   def by_menu_item(search_terms) do
