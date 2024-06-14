@@ -5,7 +5,9 @@ defmodule FoodTrucksWeb.FoodTrucksController do
 
   action_fallback FoodTrucksWeb.FallbackController
 
-  def search(conn, %{"q" => search_terms}) do
+  def search(conn, params) do
+    search_terms = Map.get(params, "q", [])
+
     trucks = API.by_menu_item(search_terms)
 
     render(conn, :show, trucks: trucks)
